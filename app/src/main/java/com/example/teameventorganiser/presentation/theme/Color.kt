@@ -1,4 +1,4 @@
-package com.example.teameventorganiser.ui.theme
+package com.example.teameventorganiser.presentation.theme
 
 import androidx.compose.ui.graphics.Color
 
