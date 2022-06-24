@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.compose.ui.platform.ComposeView
 import androidx.fragment.app.viewModels
+import com.example.teameventorganiser.presentation.viewmodel.EventDetailViewModel
 
 class EventDetailFragment : androidx.fragment.app.Fragment() {
 

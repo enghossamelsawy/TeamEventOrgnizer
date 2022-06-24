@@ -1,4 +1,4 @@
-package com.example.teameventorganiser.ui.main.detail
+package com.example.teameventorganiser.presentation.viewmodel
 
 import androidx.lifecycle.ViewModel
 
