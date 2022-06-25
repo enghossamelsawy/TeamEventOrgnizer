@@ -17,6 +17,7 @@ import androidx.navigation.compose.rememberNavController
 import com.example.teameventorganiser.presentation.theme.TeamEventOrganiserTheme
 import com.example.teameventorganiser.presentation.view.BarkHomeContent
 import com.example.teameventorganiser.presentation.view.LoginPage
+import com.example.teameventorganiser.presentation.view.Participate
 import com.example.teameventorganiser.presentation.view.TeamEventScreen
 import com.example.teameventorganiser.ui.main.detail.composablePreview
 
@@ -70,7 +71,7 @@ fun RallyApp() {
         NavHost(
             navController = navController,
             startDestination = TeamEventScreen.SignIn.name,
-                    modifier = Modifier.padding(2.dp)
+            modifier = Modifier.padding(2.dp)
         ) {
             composable(TeamEventScreen.SignIn.name) {
                 LoginPage(navController)
@@ -79,10 +80,12 @@ fun RallyApp() {
                 BarkHomeContent(navController)
             }
             composable(TeamEventScreen.Details.name) {
-//                Text(text = TeamEventScreen.Details.name)
 
-                composablePreview()
+                composablePreview(navController)
+            }
 
+            composable(TeamEventScreen.Participate.name) {
+                Participate(navController)
             }
 
         }

@@ -86,7 +86,7 @@ fun BarkHomeContent(navController: NavHostController) {
 
 
 @Composable
-private fun EventImage(event: Event) {
+ fun EventImage(event: Event) {
     GlideImage(
         imageModel = event.eventImage,
         // Crop, Fit, Inside, FillHeight, FillWidth, None

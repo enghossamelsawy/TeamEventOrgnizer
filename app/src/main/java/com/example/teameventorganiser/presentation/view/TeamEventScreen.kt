@@ -22,42 +22,33 @@ import androidx.compose.material.icons.filled.MoneyOff
 import androidx.compose.material.icons.filled.PieChart
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.vector.ImageVector
+import com.example.teameventorganiser.core.data.Event
 
 /**
  * Screen metadata for Rally.
  */
 enum class TeamEventScreen(
     val icon: ImageVector,
-    val body: @Composable ((String) -> Unit) -> Unit
+    val event: Event?= null
 ) {
-    SignIn(
-        icon = Icons.Filled.PieChart,
-        body = {  }
-    ),
+    SignIn(icon = Icons.Filled.PieChart ),
     Home(
-        icon = Icons.Filled.AttachMoney,
-        body = {  }
+        icon = Icons.Filled.AttachMoney
     ),
     Details(
-        icon = Icons.Filled.MoneyOff,
-        body = { }
+        icon = Icons.Filled.MoneyOff
+    ),
+
+    Participate(
+        icon = Icons.Filled.MoneyOff
     );
 
     @Composable
     fun content(onScreenChange: (String) -> Unit) {
-        body(onScreenChange)
+//        body(onScreenChange)
     }
 
-    companion object {
-        fun fromRoute(route: String?): TeamEventScreen =
-            when (route?.substringBefore("/")) {
-                SignIn.name -> SignIn
-                Details.name -> Details
-                Home.name -> Home
-                null -> Home
-                else -> throw IllegalArgumentException("Route $route is not recognized.")
-            }
-    }
+
 }
 
 sealed class NavRoutes(val route: String) {
