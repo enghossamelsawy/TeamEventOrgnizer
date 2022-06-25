@@ -4,5 +4,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="creation_event_fragment_event_title">Event Title</string>
     <string name="creation_event_fragment_event_description">Event Description...</string>
-
+    <string name="home_tap_to_load_content">load content</string>
+    <string name="icn_search_back_content_description">" please find Data"</string>
+    <string name="icn_search_clear_content_description">clear content</string>
 </resources>

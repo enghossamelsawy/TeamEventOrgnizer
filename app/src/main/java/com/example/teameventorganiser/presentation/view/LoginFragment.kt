@@ -29,6 +29,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.fragment.app.Fragment
+import androidx.navigation.NavHostController
+
 class LoginFragment : Fragment() {
 
 
@@ -147,3 +149,111 @@ class LoginFragment : Fragment() {
     }
 
 }
+
+@Preview(showBackground = true)
+@Composable
+fun LoginPage(navController: NavHostController) {
+
+    var username by remember { mutableStateOf(TextFieldValue("")) }
+    var password by remember { mutableStateOf(TextFieldValue("")) }
+
+
+    Box(modifier = Modifier.fillMaxSize()) {
+        ClickableText(
+            text = AnnotatedString("Forgot your password...?"),
+            modifier = Modifier
+                .align(Alignment.BottomCenter)
+                .padding(20.dp),
+            onClick = { },
+            style = TextStyle(
+                fontSize = 14.sp,
+                fontFamily = FontFamily.Default,
+                textDecoration = TextDecoration.Underline
+            )
+        )
+    }
+    Column(
+        modifier = Modifier.padding(20.dp),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+
+        Spacer(modifier = Modifier.height(200.dp))
+
+
+        Text(text = "Login", style = TextStyle(fontSize = 40.sp, fontFamily = FontFamily.Cursive))
+
+        Spacer(modifier = Modifier.height(20.dp))
+
+        // TextField
+        OutlinedTextField(
+            value = username,
+            leadingIcon = { Icon(imageVector = Icons.Default.Email, contentDescription = null) },
+            modifier = Modifier
+                .padding(8.dp)
+                .fillMaxWidth(),
+            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Text),
+            label = { Text(text = "Email address") },
+            placeholder = { Text(text = "Your email") },
+            onValueChange = {
+                username = it
+            }
+        )
+
+
+        Spacer(modifier = Modifier.height(20.dp))
+
+        // TextField
+
+        OutlinedTextField(
+            value = password,
+            leadingIcon = { Icon(imageVector = Icons.Default.Lock, contentDescription = null) },
+            modifier = Modifier
+                .padding(8.dp)
+                .fillMaxWidth(),
+            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Text),
+            label = { Text(text = "Password") },
+            placeholder = { Text(text = "Your password") },
+            onValueChange = {
+                password = it
+            }
+        )
+
+        Spacer(modifier = Modifier.height(20.dp))
+        Box(modifier = Modifier.padding(40.dp, 0.dp, 40.dp, 0.dp)) {
+
+            Row(Modifier.fillMaxSize()) {
+                Button(
+                    onClick = { },
+                    shape = RoundedCornerShape(50.dp),
+                    modifier = Modifier
+                        .weight(1.0f)
+                        .fillMaxWidth()
+                        .height(50.dp)
+                ) {
+                    Text(text = "Login")
+                }
+
+                Spacer(modifier = Modifier.width(20.dp))
+
+                Button(
+                    onClick = {
+
+
+                    },
+                    shape = RoundedCornerShape(50.dp),
+                    modifier = Modifier
+                        .weight(1.0f)
+                        .fillMaxWidth()
+                        .height(50.dp)
+                ) {
+                    Text(text = "Register")
+                }
+            }
+        }
+    }
+
+
+    Spacer(modifier = Modifier.height(20.dp))
+}
+
