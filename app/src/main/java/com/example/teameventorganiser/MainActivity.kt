@@ -18,6 +18,7 @@ import com.example.teameventorganiser.presentation.theme.TeamEventOrganiserTheme
 import com.example.teameventorganiser.presentation.view.BarkHomeContent
 import com.example.teameventorganiser.presentation.view.LoginPage
 import com.example.teameventorganiser.presentation.view.TeamEventScreen
+import com.example.teameventorganiser.ui.main.detail.composablePreview
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -62,27 +63,28 @@ fun DefaultPreview() {
 fun RallyApp() {
     TeamEventOrganiserTheme {
         val allScreens = TeamEventScreen.values().toList()
-        var currentScreen = rememberSaveable { mutableStateOf(TeamEventScreen.Home) }
+        var currentScreen = rememberSaveable { mutableStateOf(TeamEventScreen.SignIn) }
         val navController = rememberNavController()
 
 
         NavHost(
             navController = navController,
-            startDestination = TeamEventScreen.Home.name,
+            startDestination = TeamEventScreen.SignIn.name,
                     modifier = Modifier.padding(2.dp)
         ) {
             composable(TeamEventScreen.SignIn.name) {
                 LoginPage(navController)
             }
             composable(TeamEventScreen.Home.name) {
-//                Text(text = TeamEventScreen.Home.name)
                 BarkHomeContent(navController)
             }
-//            composable(TeamEventScreen.SignIn.name) {
-//                Text(text = TeamEventScreen.SignIn.name)
-//            }
+            composable(TeamEventScreen.Details.name) {
+//                Text(text = TeamEventScreen.Details.name)
 
-            // TODO: Add the other two screens
+                composablePreview()
+
+            }
+
         }
     }
 }

@@ -69,7 +69,7 @@ fun BarkHomeContent(navController: NavHostController) {
 
             LazyColumn(modifier = Modifier.fillMaxHeight()) {
                 items(items = events, itemContent = { item ->
-                    EventListItem(item)
+                    EventListItem(item, navController)
                 })
 
             }
@@ -101,13 +101,15 @@ private fun EventImage(event: Event) {
 
 @Preview
 @Composable
-fun EventListItem(item: Event) {
+fun EventListItem(item: Event, navController: NavHostController) {
 
     Card(
         modifier = Modifier
             .fillMaxWidth()
             .padding(15.dp)
-            .clickable { },
+            .clickable {
+                navController.navigate(TeamEventScreen.Details.name)
+            },
         elevation = 10.dp
     ) {
 

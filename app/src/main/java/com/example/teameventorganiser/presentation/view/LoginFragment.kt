@@ -224,7 +224,9 @@ fun LoginPage(navController: NavHostController) {
 
             Row(Modifier.fillMaxSize()) {
                 Button(
-                    onClick = { },
+                    onClick = {
+                        navController.navigate(NavRoutes.Home.route)
+                    },
                     shape = RoundedCornerShape(50.dp),
                     modifier = Modifier
                         .weight(1.0f)

@@ -22,8 +22,10 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.example.teameventorganiser.R
@@ -61,10 +63,10 @@ class EventDetailFragment : Fragment() {
             )
 
             Spacer(modifier = Modifier.height(8.dp))
-            Text(text = "Title", color = Color.White)
+            Text(text = "Title", color = Color.Blue, modifier = Modifier.size(17.dp))
 
             Spacer(modifier = Modifier.height(8.dp))
-            Text(text = "Event Details", color = Color.White)
+            Text(text = "Event Details", color = Color.Blue, modifier = Modifier.size(15.dp))
 
             Spacer(modifier = Modifier.height(32.dp))
             OutlinedButton(
@@ -92,3 +94,49 @@ class EventDetailFragment : Fragment() {
         fun newInstance() = EventDetailFragment()
     }
 }
+
+
+@Preview
+@Composable
+fun composablePreview() {
+    Column(
+        Modifier.fillMaxSize(),
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        Spacer(modifier = Modifier.height(16.dp))
+        Image(
+            painter = painterResource(id = R.drawable.ic_launcher_foreground),
+            contentDescription = "Event picture",
+            modifier = Modifier
+                .size(40.dp)
+                .clip(CircleShape)
+        )
+
+        Spacer(modifier = Modifier.height(8.dp))
+        Text(text = "Title", color = Color.Blue, style = TextStyle(fontSize = 18.sp))
+
+        Spacer(modifier = Modifier.height(8.dp))
+        Text(text = "Event Details", color = Color.Blue, style = TextStyle(fontSize = 16.sp))
+
+        Spacer(modifier = Modifier.height(32.dp))
+        OutlinedButton(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(start = 16.dp, end = 16.dp),
+            onClick = {  },
+        ) {
+            Text(text = "Join")
+        }
+
+        Spacer(modifier = Modifier.height(8.dp))
+        OutlinedButton(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(start = 16.dp, end = 16.dp),
+            onClick = {  },
+        ) {
+            Text(text = "View Participants")
+        }
+    }
+}
+

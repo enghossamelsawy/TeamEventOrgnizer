@@ -38,7 +38,7 @@ enum class TeamEventScreen(
         icon = Icons.Filled.AttachMoney,
         body = {  }
     ),
-    Bills(
+    Details(
         icon = Icons.Filled.MoneyOff,
         body = { }
     );
@@ -52,7 +52,7 @@ enum class TeamEventScreen(
         fun fromRoute(route: String?): TeamEventScreen =
             when (route?.substringBefore("/")) {
                 SignIn.name -> SignIn
-                Bills.name -> Bills
+                Details.name -> Details
                 Home.name -> Home
                 null -> Home
                 else -> throw IllegalArgumentException("Route $route is not recognized.")
